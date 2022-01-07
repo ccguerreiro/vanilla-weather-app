@@ -3,19 +3,20 @@ body {
 }
 
 .page-border {
-  background-color: #f2cc96;
+  background-color: #fbf2d5;
   border-style: solid;
-  border-radius: 20px;
-  border-color: #a55540;
-  border-width: 5px;
+  border-radius: 25px;
+  border-color: #394a51;
+  border-width: 10px;
   margin: 50px auto;
   padding: 25px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
 }
 
 h1 {
   font-size: 100px;
   color: rgb(66, 62, 62);
-  text-align: left;
+  text-align: center;
   margin-left: 0;
 }
 
@@ -36,7 +37,7 @@ h4 {
 }
 
 .date {
-  text-align: left;
+  text-align: center;
   font-size: 12px;
 }
 
@@ -46,7 +47,7 @@ h4 {
 }
 
 .tactual {
-  color: rgb(66, 62, 62);
+  color: #394a51;
   font-size: 80px;
   width: 0%;
   position: relative;
@@ -81,11 +82,11 @@ h4 {
 }
 
 .sun-icon {
-  color: #a55540;
+  color: #fdc57b;
 }
 
 .ray-icon {
-  color: rgb(201, 187, 63);
+  color: #fdc57b;
 }
 
 .wind-icon {
@@ -111,15 +112,17 @@ h4 {
 }
 
 .search-button {
-  background-color: #a55540;
-  border: 1px solid #423e3e;
+  background-color: #394a51;
+  border: 1px solid white;
   position: relative;
   left: -50px;
+  color: #fbf2d5;
 }
 
 .location-button {
-  background-color: #a55540;
-  border: 1px solid #423e3e;
+  background-color: #394a51;
+  border: 1px solid white;
+  color: #fbf2d5;
   position: relative;
   width: 110%;
   left: -70px;

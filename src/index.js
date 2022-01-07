@@ -7,7 +7,7 @@ function formatDate(Date) {
     "Sunday",
     "Tuesday",
     "Wednesday",
-    "Tursday",
+    "Thursday",
     "Friday",
     "Saturday",
     "Sunday",
