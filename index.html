@@ -31,34 +31,18 @@
     <div>
     <div class="container">
       <div class="page-border">
-        <h1>Lisbon</h1>
-         <span>
-
+        <h1>Lisbon <i class="fas fa-cloud-showers-heavy actual-icon"></i></h1>
         
-        <a href="#" id="celcius-link"> º C </a> |
-        <a href="#" id="fahrenheit-link"> º F </a>
+        <a href="#" class="temperature-units" id="celcius-link"> º C </a> |
+        <a href="#" class="temperature-units" id="fahrenheit-link"> º F </a>
         <br />
         <p class="date" id="today-date"></p>
- </span>
-        <br />
-
-        <div class="row">
-          <div class="col-6">
-              <i class="fas fa-cloud-showers-heavy actual-icon"></i>
-              <span class="tactual" id="actual-temperature"> 15ºC</span>
-              
-            </div>  
-               
-            
-          
-          <div class="col-6 other-data">
-
-            <div class="lower-one" id="actual-humidity">humidity: 80 %</div>
-            
-            <div class="lower-one" id="actual-wind">wind: 3 km/h</div>
-            <div class="lower-one" id="actual-description">cloudy</div>
-          </div>
-        </div>
+ 
+        <br />       
+        <div class="tactual" id="actual-temperature"> 15ºC</div>       
+        <div class="lower-one" id="actual-humidity">humidity: 80 %</div>
+        <div class="lower-one" id="actual-wind">wind: 3 km/h</div>
+        <div class="lower-one" id="actual-description">cloudy</div>
         <br />
         
 
@@ -105,8 +89,6 @@
             </div>
           </div>
       <form class="search-form" id="search-form">
-          <div class="row">
-            <div class="col-8">
               <input
                   type="search"
                   class="form-control"
@@ -114,15 +96,15 @@
                   autofocus="on"
                   id="search-text-input"
                 />
-            </div>
-            <div class="col-2">
+            <div class="row">
+            <div class="col">
               <input 
               class="btn btn-primary form-control search-button" 
               type="submit"
               value="Search"
               id="search-button">
             </div>
-            <div class="col-2">
+            <div class="col">
               <input 
               class="btn btn-primary form-control location-button" 
               type="click"
