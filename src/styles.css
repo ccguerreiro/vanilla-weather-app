@@ -1,11 +1,13 @@
 body {
   font-family: "Outfit", sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .page-border {
   background-color: #fbf2d5;
   border-style: solid;
-  border-radius: 25px;
+  border-radius: 20px;
   border-color: #394a51;
   border-width: 10px;
   margin: 50px auto;
@@ -17,11 +19,9 @@ h1 {
   font-size: 100px;
   color: rgb(66, 62, 62);
   text-align: center;
-  margin-left: 0;
 }
 
 .temperature-units {
-  margin: 0 auto;
   text-align: center;
   font-size: 15px;
   text-decoration: none;
@@ -55,6 +55,7 @@ h4 {
 }
 
 .tactual {
+  margin: 0 auto;
   text-align: center;
   color: #394a51;
   font-size: 80px;
