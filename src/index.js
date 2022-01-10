@@ -70,10 +70,10 @@ function search(event) {
     let apiKey = "8d356fc67ebb88e8c4c99fed9f89094c";
     let units = "metric";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${units}`;
-    axios.get(url).then(showTemperature);
+    axios.get(url).then(showCityWeatherData);
   }
 
-  function showTemperature(response) {
+  function showCityWeatherData(response) {
     let temperatureValue = Math.round(response.data.main.temp);
     let humidityValue = Math.round(response.data.main.humidity);
     let descriptionText = response.data.weather[0].description;
@@ -84,9 +84,9 @@ function search(event) {
     let description = document.querySelector("#actual-description");
 
     temperature.innerHTML = `${temperatureValue}ºC`;
-    humidity.innerHTML = `humidity: ${humidityValue}%`;
-    wind.innerHTML = `wind: ${windValue} m/s`;
-    description.innerHTML = `${descriptionText}`;
+    humidity.innerHTML = `Humidity: ${humidityValue}%`;
+    wind.innerHTML = `Wind: ${windValue} m/s`;
+    description.innerHTML = `Description:${descriptionText}`;
   }
 }
 
@@ -103,9 +103,9 @@ function showLocation(event) {
     let units = "metric";
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
 
-    axios.get(url).then(showCurrentLocationTemperature);
+    axios.get(url).then(showCurrentLocationWeatherData);
   }
-  function showCurrentLocationTemperature(response) {
+  function showCurrentLocationWeatherData(response) {
     let temperatureValue = Math.round(response.data.main.temp);
     let humidityValue = Math.round(response.data.main.humidity);
     let descriptionText = response.data.weather[0].description;
@@ -121,7 +121,7 @@ function showLocation(event) {
     temperature.innerHTML = `${temperatureValue}ºC`;
     humidity.innerHTML = `humidity: ${humidityValue}%`;
     wind.innerHTML = `wind: ${windValue} m/s`;
-    description.innerHTML = `${descriptionText}`;
+    description.innerHTML = `Description: ${descriptionText}`;
 
     let searchInput = document.querySelector("#search-text-input").value;
   }

@@ -52,6 +52,7 @@ h4 {
 .lower-one {
   text-align: center;
   font-size: 12px;
+  text-transform: capitalize;
 }
 
 .tactual {
