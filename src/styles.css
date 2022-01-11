@@ -28,6 +28,13 @@ h1 {
   color: rgb(66, 62, 62);
 }
 
+.temperature-units:hover {
+  text-align: center;
+  font-size: 15px;
+  text-decoration: none;
+  color: rgb(66, 62, 62);
+}
+
 h4 {
   text-align: center;
 }
