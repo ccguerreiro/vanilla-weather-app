@@ -57,7 +57,7 @@ function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-text-input").value;
 
-  let h1 = document.querySelector("h1");
+  let h1 = document.querySelector("#city");
   if (searchInput) {
     h1.innerHTML = `${searchInput}`;
   } else {
@@ -65,35 +65,36 @@ function search(event) {
     alert("Something is wrong, please type a city");
   }
   citySearchData(searchInput);
+}
+function citySearchData(city) {
+  let apiKey = "8d356fc67ebb88e8c4c99fed9f89094c";
+  let units = "metric";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(url).then(showCityWeatherData);
+}
 
-  function citySearchData(city) {
-    let apiKey = "8d356fc67ebb88e8c4c99fed9f89094c";
-    let units = "metric";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${units}`;
-    axios.get(url).then(showCityWeatherData);
-  }
+function showCityWeatherData(response) {
+  let temperatureValue = Math.round(response.data.main.temp);
+  let humidityValue = Math.round(response.data.main.humidity);
+  let descriptionText = response.data.weather[0].description;
+  let windValue = Math.round(response.data.wind.speed);
 
-  function showCityWeatherData(response) {
-    let temperatureValue = Math.round(response.data.main.temp);
-    let humidityValue = Math.round(response.data.main.humidity);
-    let descriptionText = response.data.weather[0].description;
-    let windValue = Math.round(response.data.wind.speed);
-    iconElement.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+  let temperature = document.querySelector("#actual-temperature");
+  let humidity = document.querySelector("#actual-humidity");
+  let wind = document.querySelector("#actual-wind");
+  let description = document.querySelector("#actual-description");
+  let iconElement = document.querySelector("#icon");
+  let h1 = document.querySelector("#city");
 
-    let temperature = document.querySelector("#actual-temperature");
-    let humidity = document.querySelector("#actual-humidity");
-    let wind = document.querySelector("#actual-wind");
-    let description = document.querySelector("#actual-description");
-    let iconElement = querySelector("#icon");
-
-    temperature.innerHTML = `${temperatureValue}ºC`;
-    humidity.innerHTML = `Humidity: ${humidityValue}%`;
-    wind.innerHTML = `Wind: ${windValue} m/s`;
-    description.innerHTML = `Description:${descriptionText}`;
-  }
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  h1.innerHTML = response.data.name;
+  temperature.innerHTML = `${temperatureValue}ºC`;
+  humidity.innerHTML = `Humidity: ${humidityValue}%`;
+  wind.innerHTML = `Wind: ${windValue} m/s`;
+  description.innerHTML = `Description:${descriptionText}`;
 }
 
 let form = document.querySelector("#search-form");
@@ -118,19 +119,13 @@ function showLocation(event) {
     let windValue = Math.round(response.data.wind.speed);
     let locationName = response.data.name;
 
-    let iconElemento = iconElement.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-
     let temperature = document.querySelector("#actual-temperature");
     let humidity = document.querySelector("#actual-humidity");
     let wind = document.querySelector("#actual-wind");
     let description = document.querySelector("#actual-description");
     let h1 = document.querySelector("h1");
-    let iconElement = querySelector("#icon");
 
-    h1.innerHTML = `${locationName} ${iconElemento}`;
+    h1.innerHTML = `${locationName}`;
     temperature.innerHTML = `${temperatureValue}ºC`;
     humidity.innerHTML = `humidity: ${humidityValue}%`;
     wind.innerHTML = `wind: ${windValue} m/s`;
