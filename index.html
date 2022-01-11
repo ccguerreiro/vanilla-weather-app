@@ -41,7 +41,7 @@
             id="icon"> 
         </h1>
         <p class="temperature-units">
-        <a href="#" class="temperature-units" id="celcius-link"> º C </a> |
+        <a href="#" class="temperature-units" id="celsius-link"> º C </a> |
         <a href="#" class="temperature-units" id="fahrenheit-link"> º F </a>
         <br />
         <p class="date" id="today-date"></p>
@@ -101,7 +101,8 @@
                   type="search"
                   class="form-control"
                   placeholder="Search a city"
-                  autofocus="on"
+                  autofocus="off"
+                  autocomplete="off"
                   id="search-text-input"
                 />
             <div class="row">
@@ -110,6 +111,7 @@
               class="btn btn-primary form-control search-button" 
               type="submit"
               value="Search"
+              autofocus="off"
               id="search-button">
             </div>
             <div class="col">
@@ -117,6 +119,7 @@
               class="btn btn-primary form-control location-button" 
               type="click"
               value="Current Location"
+              autofocus="off"
               id="current-location-button">
             </div>
          </div>

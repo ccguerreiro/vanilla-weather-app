@@ -79,6 +79,8 @@ function showCityWeatherData(response) {
   let descriptionText = response.data.weather[0].description;
   let windValue = Math.round(response.data.wind.speed);
 
+  celsiusTemperature = response.data.main.temp; //storage the value
+
   let temperature = document.querySelector("#actual-temperature");
   let humidity = document.querySelector("#actual-humidity");
   let wind = document.querySelector("#actual-wind");
@@ -153,10 +155,27 @@ form.addEventListener("click", showLocation);
 let convertToCelcius = document.querySelector("#celcius-link");
 convertToCelcius.addEventListener("click", changeToCelcius);
 
-function changeToFahrenheit(event) {
+
+
+*/
+
+function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let toFahrenheit = document.querySelector("#actual-temperature");
-  toFahrenheit.innerHTML = "59º F";
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  toFahrenheit.innerHTML = `${Math.round(fahrenheitTemperature)}ºF`;
 }
-let clickToFahrenheit = document.querySelector("#fahrenheit-link");
-clickToFahrenheit.addEventListener("click", changeToFahrenheit);*/
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let toCelsius = document.querySelector("#actual-temperature");
+  toCelsius.innerHTML = `${Math.round(celsiusTemperature)}ºC`;
+}
+
+celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
