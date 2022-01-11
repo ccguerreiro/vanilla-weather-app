@@ -123,7 +123,13 @@ function showLocation(event) {
     let humidity = document.querySelector("#actual-humidity");
     let wind = document.querySelector("#actual-wind");
     let description = document.querySelector("#actual-description");
-    let h1 = document.querySelector("h1");
+    let iconElement = document.querySelector("#icon");
+    let h1 = document.querySelector("#city");
+    iconElement.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    h1.innerHTML = response.data.name;
 
     h1.innerHTML = `${locationName}`;
     temperature.innerHTML = `${temperatureValue}ºC`;
