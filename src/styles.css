@@ -43,8 +43,9 @@ h4 {
   max-width: 45%;
 }
 .days-of-the-week {
+  text-align: center;
   padding: 0;
-  margin: 0 auto;
+  margin: 0 0 15px 0;
 }
 .temperatures {
   position: relative;
@@ -68,8 +69,12 @@ h4 {
   color: #394a51;
   font-size: 80px;
 }
-.lower-two {
-  text-align: center;
+.forecast-temperature-min {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.forecast-temperature-max {
   font-size: 12px;
 }
 

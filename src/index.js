@@ -147,18 +147,6 @@ function showLocation(event) {
 let form2 = document.querySelector("#current-location-button");
 form.addEventListener("click", showLocation);
 
-/* function changeToCelcius(event) {
-  event.preventDefault();
-  let toCelcius = document.querySelector("#actual-temperature");
-  toCelcius.innerHTML = "15ºC";
-}
-let convertToCelcius = document.querySelector("#celcius-link");
-convertToCelcius.addEventListener("click", changeToCelcius);
-
-
-
-*/
-
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let toFahrenheit = document.querySelector("#actual-temperature");
