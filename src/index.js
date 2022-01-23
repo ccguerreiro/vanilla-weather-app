@@ -51,6 +51,38 @@ function formatDate(Date) {
 }
 console.log(formatDate(now));
 
+//Forecast
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["MON", "THU", "WED", "TUR", "FRI", "SUN"];
+  let forecastHTML = `<div class="row">`; //serve para transformar em coluna
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+                  <div class="days-of-the-week">
+                    <h4>
+                      ${day}
+                      <i class="fas fa-bolt ray-icon"></i>
+                    </h4>
+                    <div class="forecast-temperatures">
+                      <span class="forecast-temperature-max">12º </span>
+                      <span class="forecast-temperature-min">/-2º </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 //Search Engine
 
 function search(event) {
@@ -71,6 +103,19 @@ function citySearchData(city) {
   let units = "metric";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(url).then(showCityWeatherData);
+}
+
+function getForecastCoords(coordinates) {
+  console.log(coordinates);
+  let apiKey = "8d356fc67ebb88e8c4c99fed9f89094c";
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}`;
+
+  console.log(apiUrl);
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showCityWeatherData(response) {
@@ -97,6 +142,10 @@ function showCityWeatherData(response) {
   humidity.innerHTML = `Humidity: ${humidityValue}%`;
   wind.innerHTML = `Wind: ${windValue} m/s`;
   description.innerHTML = `Description:${descriptionText}`;
+
+  console.log(response.data);
+
+  getForecastCoords(response.data.coord);
 }
 
 let form = document.querySelector("#search-form");
