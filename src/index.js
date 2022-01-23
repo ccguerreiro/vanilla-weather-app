@@ -54,27 +54,34 @@ console.log(formatDate(now));
 //Forecast
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["MON", "THU", "WED", "TUR", "FRI", "SUN"];
+
   let forecastHTML = `<div class="row">`; //serve para transformar em coluna
 
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
                   <div class="days-of-the-week">
                     <h4>
-                      ${day}
-                      <i class="fas fa-bolt ray-icon"></i>
-                    </h4>
+                      ${forecastDay.dt}
+                      </h4>
+                      <img
+                        src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+                        alt=""
+                        width="42"
+                       />
                     <div class="forecast-temperatures">
-                      <span class="forecast-temperature-max">12º </span>
-                      <span class="forecast-temperature-min">/-2º </span>
+                      <span class="forecast-temperature-max"> 
+                      ${forecastDay.temp.max}° 
+                      </span>
+                      <span class="forecast-temperature-min">${forecastDay.temp.min}°
+                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
+              
               `;
   });
 
