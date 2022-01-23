@@ -1,5 +1,3 @@
-//WEEK 5
-
 let now = new Date();
 
 function formatDate(Date) {
@@ -52,6 +50,13 @@ function formatDate(Date) {
 console.log(formatDate(now));
 
 //Forecast
+function forecastFormatDay(weekDay) {
+  let date = new Date(weekDay * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  return days[day];
+}
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -59,30 +64,36 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="row">`; //serve para transformar em coluna
 
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
                   <div class="days-of-the-week">
                     <h4>
-                      ${forecastDay.dt}
+                      ${forecastFormatDay(forecastDay.dt)}
                       </h4>
                       <img
-                        src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+                        src="http://openweathermap.org/img/wn/${
+                          forecastDay.weather[0].icon
+                        }@2x.png"
                         alt=""
                         width="42"
                        />
                     <div class="forecast-temperatures">
                       <span class="forecast-temperature-max"> 
-                      ${forecastDay.temp.max}° 
+                      ${Math.round(forecastDay.temp.max)}° 
                       </span>
-                      <span class="forecast-temperature-min">${forecastDay.temp.min}°
+                      <span class="forecast-temperature-min">${Math.round(
+                        forecastDay.temp.min
+                      )}°
                       </span>
                     </div>
                   </div>
                 </div>
               
-              `;
+  `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -105,6 +116,7 @@ function search(event) {
   }
   citySearchData(searchInput);
 }
+
 function citySearchData(city) {
   let apiKey = "8d356fc67ebb88e8c4c99fed9f89094c";
   let units = "metric";
@@ -158,7 +170,9 @@ function showCityWeatherData(response) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-// Current Location Button
+/* Current Location Button
+
+
 function showLocation(event) {
   function showPosition(position) {
     let lat = position.coords.latitude;
@@ -166,7 +180,7 @@ function showLocation(event) {
 
     let apiKey = "8d356fc67ebb88e8c4c99fed9f89094c";
     let units = "metric";
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}&units=metric`;
 
     axios.get(url).then(showCurrentLocationWeatherData);
   }
@@ -200,8 +214,11 @@ function showLocation(event) {
 
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+
 let form2 = document.querySelector("#current-location-button");
 form.addEventListener("click", showLocation);
+*/
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -223,3 +240,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+citySearchData("Lisbon");

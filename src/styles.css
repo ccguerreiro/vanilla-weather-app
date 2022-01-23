@@ -139,12 +139,9 @@ h4 {
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  /*position: relative;
-  left: -50px;
- */
 }
 
-.location-button {
+/*.location-button {
   margin: 20px 0 20px 0;
   background-color: #394a51;
   border: 1px solid white;
@@ -153,10 +150,8 @@ h4 {
   padding-left: 0;
   padding-right: 0;
 
-  /*
-   
-   position: relative;
-  left: -70px;*/
+  
+ ;*/
 }
 .btn-primary:hover {
   color: #423e3e;
