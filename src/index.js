@@ -1,3 +1,5 @@
+//Date
+
 let now = new Date();
 
 function formatDate(Date) {
@@ -170,55 +172,7 @@ function showCityWeatherData(response) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-/* Current Location Button
-
-
-function showLocation(event) {
-  function showPosition(position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-
-    let apiKey = "8d356fc67ebb88e8c4c99fed9f89094c";
-    let units = "metric";
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}&units=metric`;
-
-    axios.get(url).then(showCurrentLocationWeatherData);
-  }
-  function showCurrentLocationWeatherData(response) {
-    let temperatureValue = Math.round(response.data.main.temp);
-    let humidityValue = Math.round(response.data.main.humidity);
-    let descriptionText = response.data.weather[0].description;
-    let windValue = Math.round(response.data.wind.speed);
-    let locationName = response.data.name;
-
-    let temperature = document.querySelector("#actual-temperature");
-    let humidity = document.querySelector("#actual-humidity");
-    let wind = document.querySelector("#actual-wind");
-    let description = document.querySelector("#actual-description");
-    let iconElement = document.querySelector("#icon");
-    let h1 = document.querySelector("#city");
-    iconElement.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-    h1.innerHTML = response.data.name;
-
-    h1.innerHTML = `${locationName}`;
-    temperature.innerHTML = `${temperatureValue}ºC`;
-    humidity.innerHTML = `humidity: ${humidityValue}%`;
-    wind.innerHTML = `wind: ${windValue} m/s`;
-    description.innerHTML = `Description: ${descriptionText}`;
-
-    let searchInput = document.querySelector("#search-text-input").value;
-  }
-
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-
-let form2 = document.querySelector("#current-location-button");
-form.addEventListener("click", showLocation);
-*/
+//Convert C to F
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();

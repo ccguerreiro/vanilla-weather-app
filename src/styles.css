@@ -39,9 +39,6 @@ h4 {
   text-align: center;
 }
 
-.clearfix {
-  max-width: 45%;
-}
 .days-of-the-week {
   text-align: center;
   padding: 0;
@@ -78,46 +75,11 @@ h4 {
   font-size: 12px;
 }
 
-.actual-icon {
-  color: #423e3e;
-  font-size: 40px;
-  margin-right: 30px auto;
-  /*alinhar imagrm ao centro*/
-}
 .col-6 {
   width: 40%;
 }
 
-.other-data {
-  width: 40%;
-  font-size: 12px;
-  text-align: left;
-  position: relative;
-  left: -30px;
-  top: 55px;
-}
-
-.cloud-icon {
-  color: #423e3e;
-}
-
-.sun-icon {
-  color: #fdc57b;
-}
-
-.ray-icon {
-  color: #fdc57b;
-}
-
-.wind-icon {
-  color: #423e3e;
-}
-
-.rain-icon {
-  color: #423e3e;
-}
 .form-control {
-  /*display: block;*/
   width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -141,18 +103,6 @@ h4 {
   padding-right: 0;
 }
 
-/*.location-button {
-  margin: 20px 0 20px 0;
-  background-color: #394a51;
-  border: 1px solid white;
-  color: #fbf2d5;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-
-  
- ;*/
-}
 .btn-primary:hover {
   color: #423e3e;
   background-color: white;
