@@ -130,7 +130,7 @@ function getForecastCoords(coordinates) {
   let lat = coordinates.lat;
   let lon = coordinates.lon;
   let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
 
   console.log(apiUrl);
 
